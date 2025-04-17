@@ -1,8 +1,8 @@
 const User = require('../models/userModel');
 const asyncErrorHandler = require('../middlewares/helpers/asyncErrorHandler');
 const sendToken = require('../utils/sendToken');
-const asyncToken = require('../utils/.svn/asyncToken');
 const ErrorHandler = require('../utils/errorHandler');
+const axios = require('axios');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 const cloudinary = require('cloudinary');
@@ -28,6 +28,7 @@ exports.registerUser = asyncErrorHandler(async (req, res, next) => {
             url: myCloud.secure_url,
         },
     });
+  
 
     sendToken(user, 201, res);
 });
@@ -209,6 +210,8 @@ exports.getAllUsers = asyncErrorHandler(async (req, res, next) => {
         users,
     });
 });
+
+
 
 // Get Single User Details --ADMIN
 exports.getSingleUser = asyncErrorHandler(async (req, res, next) => {

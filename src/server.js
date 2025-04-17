@@ -2,15 +2,15 @@ const app = require('./app');
 const connectDatabase = require('./config/database');
 const cloudinary = require('cloudinary');
 const PORT = process.env.PORT || 4000;
-
+const setToken = require('./middlewares/token/set-token');
 // UncaughtException Error
 process.on('uncaughtException', (err) => {
     console.log(`Error: ${err.message}`);
     process.exit(1);
 });
 
+setToken();
 // connectDatabase();
-
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
