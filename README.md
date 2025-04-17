@@ -8,7 +8,7 @@ npm install on root folder and client folder
 
 npm run dev 
 
-## Features : 
+## Stacks : 
 
 Ant Design Framework(AntD) 
 
